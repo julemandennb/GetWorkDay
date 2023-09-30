@@ -52,6 +52,7 @@
             buttonAddEvertName = new Button();
             textBoxEvertName = new TextBox();
             label5 = new Label();
+            buttonGoogle = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -163,11 +164,11 @@
             groupBox3.Controls.Add(checkBoxonsdag);
             groupBox3.Controls.Add(checkBoxtorsdag);
             groupBox3.Controls.Add(checkBoxtirsdag);
-            groupBox3.Location = new Point(65, 127);
+            groupBox3.Location = new Point(15, 121);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(154, 208);
             groupBox3.TabIndex = 10;
-            groupBox3.TabStop = false;
+            groupBox3.TabStop = false; 
             // 
             // checkBoxsøndag
             // 
@@ -291,18 +292,30 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 25F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(6, 17);
+            label5.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(6, 26);
             label5.Name = "label5";
-            label5.Size = new Size(175, 46);
+            label5.Size = new Size(216, 25);
             label5.TabIndex = 8;
-            label5.Text = "evert nave";
+            label5.Text = "evert nave ikke skal med";
+            // 
+            // buttonGoogle
+            // 
+            buttonGoogle.Font = new Font("Segoe UI", 6.75F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonGoogle.Location = new Point(8, 341);
+            buttonGoogle.Name = "buttonGoogle";
+            buttonGoogle.Size = new Size(158, 23);
+            buttonGoogle.TabIndex = 10;
+            buttonGoogle.Text = "google credentials File upload";
+            buttonGoogle.UseVisualStyleBackColor = true;
+            buttonGoogle.Click += buttonGoogle_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(563, 450);
+            Controls.Add(buttonGoogle);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
@@ -346,5 +359,6 @@
         private TextBox textBoxEvertName;
         private Label label5;
         private ListBox listBoxevertname;
+        private Button buttonGoogle;
     }
 }

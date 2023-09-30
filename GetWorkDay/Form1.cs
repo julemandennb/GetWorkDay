@@ -1,10 +1,14 @@
+
+
 namespace GetWorkDay
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private void buttonAddDato_Click(object sender, EventArgs e)
@@ -31,5 +35,12 @@ namespace GetWorkDay
             if (SelectedIndex != -1)
                 this.listBoxevertname.Items.RemoveAt(SelectedIndex);
         }
+
+        private void buttonGoogle_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+
     }
 }
