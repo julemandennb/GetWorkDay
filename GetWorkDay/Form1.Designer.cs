@@ -48,15 +48,22 @@
             checkBoxtorsdag = new CheckBox();
             checkBoxtirsdag = new CheckBox();
             groupBox4 = new GroupBox();
+            textBoxAddEvertName = new System.Windows.Forms.TextBox();
             listBoxevertname = new ListBox();
             buttonAddEvertName = new Button();
-            textBoxEvertName = new TextBox();
             label5 = new Label();
-            buttonGoogle = new Button();
+            buttonIclurl = new Button();
+            groupBox6 = new GroupBox();
+            label7 = new Label();
+            listBoxWorkHome = new ListBox();
+            button2 = new Button();
+            textBoxWorkHome = new System.Windows.Forms.TextBox();
+            buttonMakePdf = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
+            groupBox6.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -168,7 +175,7 @@
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(154, 208);
             groupBox3.TabIndex = 10;
-            groupBox3.TabStop = false; 
+            groupBox3.TabStop = false;
             // 
             // checkBoxsøndag
             // 
@@ -184,7 +191,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 25F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(3, 15);
+            label4.Location = new Point(-4, 15);
             label4.Name = "label4";
             label4.Size = new Size(155, 46);
             label4.TabIndex = 0;
@@ -252,15 +259,22 @@
             // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(textBoxAddEvertName);
             groupBox4.Controls.Add(listBoxevertname);
             groupBox4.Controls.Add(buttonAddEvertName);
-            groupBox4.Controls.Add(textBoxEvertName);
             groupBox4.Controls.Add(label5);
             groupBox4.Location = new Point(289, 203);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(245, 189);
             groupBox4.TabIndex = 11;
             groupBox4.TabStop = false;
+            // 
+            // textBoxAddEvertName
+            // 
+            textBoxAddEvertName.Location = new Point(6, 103);
+            textBoxAddEvertName.Name = "textBoxAddEvertName";
+            textBoxAddEvertName.Size = new Size(100, 23);
+            textBoxAddEvertName.TabIndex = 9;
             // 
             // listBoxevertname
             // 
@@ -282,13 +296,6 @@
             buttonAddEvertName.UseVisualStyleBackColor = true;
             buttonAddEvertName.Click += buttonAddEvertName_Click;
             // 
-            // textBoxEvertName
-            // 
-            textBoxEvertName.Location = new Point(6, 96);
-            textBoxEvertName.Name = "textBoxEvertName";
-            textBoxEvertName.Size = new Size(117, 23);
-            textBoxEvertName.TabIndex = 9;
-            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -299,23 +306,85 @@
             label5.TabIndex = 8;
             label5.Text = "evert nave ikke skal med";
             // 
-            // buttonGoogle
+            // buttonIclurl
             // 
-            buttonGoogle.Font = new Font("Segoe UI", 6.75F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonGoogle.Location = new Point(8, 341);
-            buttonGoogle.Name = "buttonGoogle";
-            buttonGoogle.Size = new Size(158, 23);
-            buttonGoogle.TabIndex = 10;
-            buttonGoogle.Text = "google credentials File upload";
-            buttonGoogle.UseVisualStyleBackColor = true;
-            buttonGoogle.Click += buttonGoogle_Click;
+            buttonIclurl.Font = new Font("Segoe UI", 6.75F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonIclurl.Location = new Point(8, 341);
+            buttonIclurl.Name = "buttonIclurl";
+            buttonIclurl.Size = new Size(158, 23);
+            buttonIclurl.TabIndex = 10;
+            buttonIclurl.Text = "icl url";
+            buttonIclurl.UseVisualStyleBackColor = true;
+            buttonIclurl.Click += buttonIclurl_Click;
+            // 
+            // groupBox6
+            // 
+            groupBox6.Controls.Add(label7);
+            groupBox6.Controls.Add(listBoxWorkHome);
+            groupBox6.Controls.Add(button2);
+            groupBox6.Controls.Add(textBoxWorkHome);
+            groupBox6.Location = new Point(175, 127);
+            groupBox6.Name = "groupBox6";
+            groupBox6.Size = new Size(108, 265);
+            groupBox6.TabIndex = 10;
+            groupBox6.TabStop = false;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(6, 19);
+            label7.Name = "label7";
+            label7.Size = new Size(77, 15);
+            label7.TabIndex = 10;
+            label7.Text = "job hjem text";
+            // 
+            // listBoxWorkHome
+            // 
+            listBoxWorkHome.FormattingEnabled = true;
+            listBoxWorkHome.ItemHeight = 15;
+            listBoxWorkHome.Location = new Point(6, 132);
+            listBoxWorkHome.Name = "listBoxWorkHome";
+            listBoxWorkHome.Size = new Size(91, 109);
+            listBoxWorkHome.TabIndex = 10;
+            listBoxWorkHome.SelectedIndexChanged += listBoxWorkHome_SelectedIndexChanged;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(6, 92);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 10;
+            button2.Text = "Add til list";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // textBoxWorkHome
+            // 
+            textBoxWorkHome.Location = new Point(2, 54);
+            textBoxWorkHome.Name = "textBoxWorkHome";
+            textBoxWorkHome.Size = new Size(100, 23);
+            textBoxWorkHome.TabIndex = 10;
+            // 
+            // buttonMakePdf
+            // 
+            buttonMakePdf.Enabled = false;
+            buttonMakePdf.Location = new Point(433, 388);
+            buttonMakePdf.Name = "buttonMakePdf";
+            buttonMakePdf.Size = new Size(109, 50);
+            buttonMakePdf.TabIndex = 12;
+            buttonMakePdf.Text = "Make Pdf";
+            buttonMakePdf.UseVisualStyleBackColor = true;
+            buttonMakePdf.Click += buttonMakePdf_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(563, 450);
-            Controls.Add(buttonGoogle);
+            Controls.Add(buttonMakePdf);
+            Controls.Add(groupBox6);
+            Controls.Add(buttonIclurl);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
@@ -330,6 +399,8 @@
             groupBox3.PerformLayout();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
+            groupBox6.ResumeLayout(false);
+            groupBox6.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -359,6 +430,13 @@
         private TextBox textBoxEvertName;
         private Label label5;
         private ListBox listBoxevertname;
-        private Button buttonGoogle;
+        private Button buttonIclurl;
+        private System.Windows.Forms.TextBox textBoxAddEvertName;
+        private GroupBox groupBox6;
+        private Label label7;
+        private ListBox listBoxWorkHome;
+        private Button button2;
+        private System.Windows.Forms.TextBox textBoxWorkHome;
+        private Button buttonMakePdf;
     }
 }

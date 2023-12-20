@@ -12,12 +12,17 @@ using System.Net.Http.Json;
 
 namespace GetWorkDay
 {
-    internal class icalRead
+    public class icalRead
     {
+        internal List<CalendarEvent> calendarEvent = new List<CalendarEvent>();
 
+        public icalRead() { 
         
+        
+        
+        }
 
-        public List<CalendarEvent> ReadGoogle(string url) {
+        internal bool ReadGoogle(string url) {
           
             string icl = "";
 
@@ -35,12 +40,12 @@ namespace GetWorkDay
 
                 newicl = newicl.Replace("END:VCALENDAR", "");
 
-                List<CalendarEvent> calendarEvent = Calendar.Load<CalendarEvent>(newicl).ToList<CalendarEvent>();
+                this.calendarEvent = Calendar.Load<CalendarEvent>(newicl).ToList<CalendarEvent>();
 
-                return calendarEvent;
+                return true;
 
             }
-            return null;
+            return false;
 
         }
 
