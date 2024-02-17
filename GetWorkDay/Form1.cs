@@ -77,7 +77,7 @@ namespace GetWorkDay
             List<string> EvertnameWokeHome = this.listBoxWorkHome.Items.Cast<string>().ToList();
             List<bool> weekDay = new List<bool> { !this.checkBoxsøndag.Checked,!this.checkBoxmandag.Checked, !this.checkBoxtirsdag.Checked , !this.checkBoxonsdag.Checked, !this.checkBoxtorsdag.Checked, !this.checkBoxfredag.Checked, !this.checkBoxlørdag.Checked };
 
-            new MakePdf(this.icalRead).StartGernarePdf(start, end, DatoNotWork, EvertnameNotWork, EvertnameWokeHome, weekDay);
+            new findWorkDays(this.icalRead).StartGernarePdf(start, end, DatoNotWork, EvertnameNotWork, EvertnameWokeHome, weekDay);
 
         }
 
