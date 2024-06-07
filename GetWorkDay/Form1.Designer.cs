@@ -59,6 +59,8 @@
             button2 = new Button();
             textBoxWorkHome = new System.Windows.Forms.TextBox();
             buttonMakePdf = new Button();
+            buttonExport = new Button();
+            BtnImport = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -377,11 +379,33 @@
             buttonMakePdf.UseVisualStyleBackColor = true;
             buttonMakePdf.Click += buttonMakePdf_Click;
             // 
+            // buttonExport
+            // 
+            buttonExport.Location = new Point(12, 415);
+            buttonExport.Name = "buttonExport";
+            buttonExport.Size = new Size(75, 23);
+            buttonExport.TabIndex = 13;
+            buttonExport.Text = "Export";
+            buttonExport.UseVisualStyleBackColor = true;
+            buttonExport.Click += buttonExport_Click;
+            // 
+            // BtnImport
+            // 
+            BtnImport.Location = new Point(94, 415);
+            BtnImport.Name = "BtnImport";
+            BtnImport.Size = new Size(75, 23);
+            BtnImport.TabIndex = 14;
+            BtnImport.Text = "Import";
+            BtnImport.UseVisualStyleBackColor = true;
+            BtnImport.Click += buttonImport_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(563, 450);
+            Controls.Add(BtnImport);
+            Controls.Add(buttonExport);
             Controls.Add(buttonMakePdf);
             Controls.Add(groupBox6);
             Controls.Add(buttonIclurl);
@@ -438,5 +462,7 @@
         private Button button2;
         private System.Windows.Forms.TextBox textBoxWorkHome;
         private Button buttonMakePdf;
+        private Button buttonExport;
+        private Button BtnImport;
     }
 }

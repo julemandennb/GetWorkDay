@@ -7,14 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace GetWorkDay
 {
     public partial class TextBox : Form
     {
         private icalRead icalRead;
+        public string path;
 
-        public TextBox(icalRead icalRead)
+        public TextBox(icalRead icalRead = null)
         {
             InitializeComponent();
             this.icalRead = icalRead;
@@ -26,8 +28,18 @@ namespace GetWorkDay
 
             if(url != "" )
             {
+                bool isok = false;
 
-               bool isok = this.icalRead.ReadGoogle(url);
+                if (this.icalRead != null)
+                    isok = this.icalRead.ReadGoogle(url);
+                else
+                {
+
+                   this.path = url;
+                    if(this.path != "")
+                        isok = true;
+
+                }
 
                 if(isok)
                 {

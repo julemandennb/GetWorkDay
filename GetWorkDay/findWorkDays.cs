@@ -23,7 +23,7 @@ namespace GetWorkDay
 
             var noEndDate = this.icalRead.calendarEvent.Where(i => i.DtEnd == null && i.DtStart.Date >= start).Select(o => new ObjListStartEnd { Start = Convert.ToDateTime(o.DtStart.Date), End = Convert.ToDateTime(o.DtStart.Date) }).ToList();
 
-            var Event = calendarEvent.Where(i => i.DtStart.Date >= start && i.DtEnd.Date <= end);
+            var Event = calendarEvent.Where(i => i.DtEnd.Date >= start && i.DtStart.Date <= end);
 
             var NameNotWorksDato = Event.Where(i => NameNotWorks.Contains(i.Summary)).Select(o => new ObjListStartEnd { Start = Convert.ToDateTime(o.DtStart.Date), End = Convert.ToDateTime(o.DtEnd.Date) }).ToList();
 
