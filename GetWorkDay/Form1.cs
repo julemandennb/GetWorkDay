@@ -109,11 +109,11 @@ namespace GetWorkDay
 
             this.checkBoxsøndag.Checked = !obj.WeekDay[0];
             this.checkBoxmandag.Checked = !obj.WeekDay[1];
-                this.checkBoxtirsdag.Checked = !obj.WeekDay[2];
-                this.checkBoxonsdag.Checked = !obj.WeekDay[3];
-                this.checkBoxtorsdag.Checked = !obj.WeekDay[4];
-                this.checkBoxfredag.Checked = !obj.WeekDay[5];
-                this.checkBoxlørdag.Checked = !obj.WeekDay[6];
+            this.checkBoxtirsdag.Checked = !obj.WeekDay[2];
+            this.checkBoxonsdag.Checked = !obj.WeekDay[3];
+            this.checkBoxtorsdag.Checked = !obj.WeekDay[4];
+            this.checkBoxfredag.Checked = !obj.WeekDay[5];
+            this.checkBoxlørdag.Checked = !obj.WeekDay[6];
 
 
 

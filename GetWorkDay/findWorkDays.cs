@@ -16,7 +16,7 @@ namespace GetWorkDay
         }
 
 
-        internal void StartGernarePdf(DateTime start, DateTime end, List<DateTime> dateNotWorks, List<string> NameNotWorks, List<string> WorkHomes, List<bool> weekDay)
+        internal retuneValFindWorkDays GetDays(DateTime start, DateTime end, List<DateTime> dateNotWorks, List<string> NameNotWorks, List<string> WorkHomes, List<bool> weekDay)
         {
 
             var calendarEvent = this.icalRead.calendarEvent.Where(i => i.DtEnd != null);
@@ -25,20 +25,26 @@ namespace GetWorkDay
 
             var Event = calendarEvent.Where(i => i.DtEnd.Date >= start && i.DtStart.Date <= end);
 
-            var NameNotWorksDato = Event.Where(i => NameNotWorks.Contains(i.Summary)).Select(o => new ObjListStartEnd { Start = Convert.ToDateTime(o.DtStart.Date), End = Convert.ToDateTime(o.DtEnd.Date) }).ToList();
+            List<ObjListStartEnd> NameNotWorksDato = Event.Where(i => NameNotWorks.Contains(i.Summary)).Select(o => new ObjListStartEnd { Start = Convert.ToDateTime(o.DtStart.Date), End = Convert.ToDateTime(!o.IsAllDay ? o.DtEnd.Date.AddDays(-1) : o.DtEnd.Date.AddDays(-1)) }).ToList();
 
             NameNotWorksDato.AddRange(noEndDate);
 
-            var WorkHomesDato = Event.Where(i => WorkHomes.Contains(i.Summary)).Select(o => new ObjListStartEnd { Start = Convert.ToDateTime(o.DtStart.Date), End = Convert.ToDateTime(o.DtEnd.Date) }).ToList();
+            List<ObjListStartEnd> WorkHomesDato = Event.Where(i => WorkHomes.Contains(i.Summary)).Select(o => new ObjListStartEnd { Start = Convert.ToDateTime(o.DtStart.Date), End = Convert.ToDateTime(!o.IsAllDay ? o.DtEnd.Date.AddDays(-1) : o.DtEnd.Date.AddDays(-1)) }).ToList();
 
             List<DateTime> BusinessDays = GetBusinessDaysBetween(start, end, weekDay, dateNotWorks);
 
             List<DateTime> WorkDay = GetAllDayWork(BusinessDays, NameNotWorksDato);
 
+            retuneValFindWorkDays retuneValFindWorkDays = new retuneValFindWorkDays{
+                WorkDay = WorkDay,
+                WorkHomesDatos = GetAllDatesBetweenWorkHomesDato(WorkHomesDato)
+            };
+
+            return retuneValFindWorkDays;
 
         }
 
-        internal List<DateTime> GetBusinessDaysBetween(DateTime startDate, DateTime endDate, List<bool> weekDay, List<DateTime> dateNotWorks)
+        private List<DateTime> GetBusinessDaysBetween(DateTime startDate, DateTime endDate, List<bool> weekDay, List<DateTime> dateNotWorks)
         {
             List<DateTime> businessDaysBetween = new List<DateTime>();
 
@@ -57,7 +63,7 @@ namespace GetWorkDay
             return businessDaysBetween;
         }
 
-        internal List<DateTime> GetAllDayWork(List<DateTime> BusinessDays, List<ObjListStartEnd> ObjListStartEnd)
+        private List<DateTime> GetAllDayWork(List<DateTime> BusinessDays, List<ObjListStartEnd> ObjListStartEnd)
         {
             List<DateTime> WorkDay = new List<DateTime>();
 
@@ -66,6 +72,21 @@ namespace GetWorkDay
             return WorkDay;
         }
 
+        private List<DateTime> GetAllDatesBetweenWorkHomesDato(List<ObjListStartEnd> WorkHomesDato)
+        {
+            List<DateTime> dates = new List<DateTime>();
+
+            foreach (ObjListStartEnd item in WorkHomesDato)
+            {
+                for (DateTime date = item.Start; date <= item.End; date = date.AddDays(1))
+                {
+                    dates.Add(date);
+                }
+
+            }
+
+            return dates;
+        }
 
     }
 
@@ -74,5 +95,13 @@ namespace GetWorkDay
     {
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
+    }
+
+    class retuneValFindWorkDays
+    {
+        public List<DateTime> WorkDay { get; set; }
+        public List<DateTime> WorkHomesDatos { get; set; }
+
+        public int totalOnOff { get { return WorkDay.Count - WorkHomesDatos.Count; } }
     }
 }
