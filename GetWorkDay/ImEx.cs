@@ -24,18 +24,27 @@ namespace GetWorkDay
 
         public ImportExport Import(string path)
         {
-
-            string jsonStr = File.ReadAllText(path);
-
-            if (jsonStr != "")
+            try
             {
+                if (path != null)
+                {
+                    string jsonStr = File.ReadAllText(path);
 
-                ImportExport obj = JsonSerializer.Deserialize<ImportExport>(jsonStr);
+                    if (jsonStr != "")
+                    {
 
-                return obj;
-            }
-            else
+                        ImportExport obj = JsonSerializer.Deserialize<ImportExport>(jsonStr);
+
+                        return obj;
+                    }
+                }
+
                 return null;
+            }
+            catch
+            {
+                return null;
+            }
 
         }
 

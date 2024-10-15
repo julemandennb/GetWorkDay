@@ -59,7 +59,7 @@ namespace GetWorkDay
         private void buttonIclurl_Click(object sender, EventArgs e)
         {
 
-            TextBox textBox = new TextBox(icalRead);
+            TextBox textBox = new TextBox(icalRead, "url or paht to file ical");
             textBox.ShowDialog();
 
             if (icalRead.calendarEvent.Count > 0)
@@ -99,21 +99,26 @@ namespace GetWorkDay
         private void buttonImport_Click(object sender, EventArgs e)
         {
 
-            TextBox textBox = new TextBox(null);
+            TextBox textBox = new TextBox(null, "URL or path to the file with settings");
             textBox.ShowDialog();
 
             ImportExport obj = new ImEx().Import(textBox.path);
 
-            this.listBoxevertname.Items.AddRange(obj.NameNotWorks.ToArray());
-            this.listBoxWorkHome.Items.AddRange(obj.WorkHomes.ToArray());
+            if (obj != null)
+            {
 
-            this.checkBoxsøndag.Checked = !obj.WeekDay[0];
-            this.checkBoxmandag.Checked = !obj.WeekDay[1];
-            this.checkBoxtirsdag.Checked = !obj.WeekDay[2];
-            this.checkBoxonsdag.Checked = !obj.WeekDay[3];
-            this.checkBoxtorsdag.Checked = !obj.WeekDay[4];
-            this.checkBoxfredag.Checked = !obj.WeekDay[5];
-            this.checkBoxlørdag.Checked = !obj.WeekDay[6];
+                this.listBoxevertname.Items.AddRange(obj.NameNotWorks.ToArray());
+                this.listBoxWorkHome.Items.AddRange(obj.WorkHomes.ToArray());
+
+                this.checkBoxsøndag.Checked = !obj.WeekDay[0];
+                this.checkBoxmandag.Checked = !obj.WeekDay[1];
+                this.checkBoxtirsdag.Checked = !obj.WeekDay[2];
+                this.checkBoxonsdag.Checked = !obj.WeekDay[3];
+                this.checkBoxtorsdag.Checked = !obj.WeekDay[4];
+                this.checkBoxfredag.Checked = !obj.WeekDay[5];
+                this.checkBoxlørdag.Checked = !obj.WeekDay[6];
+            }
+ 
 
 
 

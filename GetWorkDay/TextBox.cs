@@ -15,18 +15,20 @@ namespace GetWorkDay
     {
         private icalRead icalRead;
         public string path;
+        public bool notClick = false;
 
-        public TextBox(icalRead icalRead = null)
+        public TextBox(icalRead icalRead = null, string text = "")
         {
             InitializeComponent();
             this.icalRead = icalRead;
+            this.label1.Text = text;
         }
 
         private void buttonGetFile_Click(object sender, EventArgs e)
         {
             string url = this.textBoxurlorfile.Text;
 
-            if(url != "" )
+            if (url != "")
             {
                 bool isok = false;
 
@@ -35,14 +37,15 @@ namespace GetWorkDay
                 else
                 {
 
-                   this.path = url;
-                    if(this.path != "")
+                    this.path = url;
+                    if (this.path != "")
                         isok = true;
 
                 }
 
-                if(isok)
+                if (isok)
                 {
+                    notClick = true;
                     this.Close();
                 }
 
