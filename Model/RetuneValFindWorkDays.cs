@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GetWorkDay.model
 {
-    internal class RetuneValFindWorkDays
+    public class RetuneValFindWorkDays
     {
         /// <summary>
         /// Work from office dato
