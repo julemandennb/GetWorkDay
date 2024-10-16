@@ -58,7 +58,7 @@
             listBoxWorkHome = new ListBox();
             button2 = new Button();
             textBoxWorkHome = new System.Windows.Forms.TextBox();
-            buttonMakePdf = new Button();
+            buttonMakeReport = new Button();
             buttonExport = new Button();
             BtnImport = new Button();
             groupBox1.SuspendLayout();
@@ -368,16 +368,16 @@
             textBoxWorkHome.Size = new Size(100, 23);
             textBoxWorkHome.TabIndex = 10;
             // 
-            // buttonMakePdf
+            // buttonMakeReport
             // 
-            buttonMakePdf.Enabled = false;
-            buttonMakePdf.Location = new Point(433, 388);
-            buttonMakePdf.Name = "buttonMakePdf";
-            buttonMakePdf.Size = new Size(109, 50);
-            buttonMakePdf.TabIndex = 12;
-            buttonMakePdf.Text = "Make Pdf";
-            buttonMakePdf.UseVisualStyleBackColor = true;
-            buttonMakePdf.Click += buttonMakePdf_Click;
+            buttonMakeReport.Enabled = false;
+            buttonMakeReport.Location = new Point(433, 388);
+            buttonMakeReport.Name = "buttonMakeReport";
+            buttonMakeReport.Size = new Size(109, 50);
+            buttonMakeReport.TabIndex = 12;
+            buttonMakeReport.Text = "Make Report";
+            buttonMakeReport.UseVisualStyleBackColor = true;
+            buttonMakeReport.Click += buttonMakeReport_Click;
             // 
             // buttonExport
             // 
@@ -406,7 +406,7 @@
             ClientSize = new Size(563, 450);
             Controls.Add(BtnImport);
             Controls.Add(buttonExport);
-            Controls.Add(buttonMakePdf);
+            Controls.Add(buttonMakeReport);
             Controls.Add(groupBox6);
             Controls.Add(buttonIclurl);
             Controls.Add(groupBox4);
@@ -461,7 +461,7 @@
         private ListBox listBoxWorkHome;
         private Button button2;
         private System.Windows.Forms.TextBox textBoxWorkHome;
-        private Button buttonMakePdf;
+        private Button buttonMakeReport;
         private Button buttonExport;
         private Button BtnImport;
     }

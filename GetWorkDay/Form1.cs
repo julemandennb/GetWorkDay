@@ -1,6 +1,7 @@
 
 
 using GetWorkDay.model;
+using MakeReport;
 
 namespace GetWorkDay
 {
@@ -12,7 +13,7 @@ namespace GetWorkDay
         {
             InitializeComponent();
             this.icalRead = new icalRead();
-            this.buttonMakePdf.Enabled = true;
+            this.buttonMakeReport.Enabled = true;
 
         }
 
@@ -65,12 +66,12 @@ namespace GetWorkDay
             textBox.ShowDialog();
 
             if (icalRead.calendarEvent.Count > 0)
-                this.buttonMakePdf.Enabled = true;
+                this.buttonMakeReport.Enabled = true;
             else
-                this.buttonMakePdf.Enabled = false;
+                this.buttonMakeReport.Enabled = false;
         }
 
-        private void buttonMakePdf_Click(object sender, EventArgs e)
+        private void buttonMakeReport_Click(object sender, EventArgs e)
         {
             DateTime start = this.dateTimePickerFra.Value;
             DateTime end = this.dateTimePickerTil.Value;
@@ -85,6 +86,8 @@ namespace GetWorkDay
             List<bool> weekDay = new List<bool> { !this.checkBoxsøndag.Checked, !this.checkBoxmandag.Checked, !this.checkBoxtirsdag.Checked, !this.checkBoxonsdag.Checked, !this.checkBoxtorsdag.Checked, !this.checkBoxfredag.Checked, !this.checkBoxlørdag.Checked };
 
             RetuneValFindWorkDays days = new findWorkDays(this.icalRead).GetDays(start, end, DatoNotWork, EvertnameNotWork, EvertnameWokeHome, weekDay);
+
+            new Report(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads\\", days, start, end).Make(Model.ReportType.Type.Text);
 
         }
 
@@ -120,10 +123,11 @@ namespace GetWorkDay
                 this.checkBoxfredag.Checked = !obj.WeekDay[5];
                 this.checkBoxlørdag.Checked = !obj.WeekDay[6];
             }
- 
+
 
 
 
         }
+
     }
 }
