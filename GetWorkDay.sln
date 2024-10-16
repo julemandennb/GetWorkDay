@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakeReport", "MakeReport\Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{12235C5A-2DE3-4C67-AD4A-44E27270BDCC}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ReportWorkSetup", "ReportWorkSetup\ReportWorkSetup.vdproj", "{2BE600A4-E4CF-4A89-A6BA-F4C537FDD6DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,8 @@ Global
 		{12235C5A-2DE3-4C67-AD4A-44E27270BDCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12235C5A-2DE3-4C67-AD4A-44E27270BDCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12235C5A-2DE3-4C67-AD4A-44E27270BDCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BE600A4-E4CF-4A89-A6BA-F4C537FDD6DC}.Debug|Any CPU.ActiveCfg = Debug
+		{2BE600A4-E4CF-4A89-A6BA-F4C537FDD6DC}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
