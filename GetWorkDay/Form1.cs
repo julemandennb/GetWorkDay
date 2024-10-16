@@ -77,9 +77,11 @@ namespace GetWorkDay
             DateTime end = this.dateTimePickerTil.Value;
             List<DateTime> DatoNotWork = listBoxDato.Items.Cast<DateTime>().ToList();
 
+
+#if DEBUG
             //test dato to 2023
             DatoNotWork = new List<DateTime> { new DateTime(2023, 1, 1), new DateTime(2023, 4, 6), new DateTime(2023, 4, 7), new DateTime(2023, 4, 10), new DateTime(2023, 5, 5), new DateTime(2023, 5, 18), new DateTime(2023, 5, 29), new DateTime(2023, 12, 25) };
-
+#endif
 
             List<string> EvertnameNotWork = this.listBoxevertname.Items.Cast<string>().ToList();
             List<string> EvertnameWokeHome = this.listBoxWorkHome.Items.Cast<string>().ToList();
