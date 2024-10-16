@@ -140,15 +140,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:ReportWork"
-        "ProductCode" = "8:{29D57FA8-A6BE-474E-95CE-8089F6D63A0B}"
-        "PackageCode" = "8:{26B04483-C22D-4EC6-A745-D9F00F252CC3}"
+        "ProductCode" = "8:{E1FAEC7F-F0D0-44AA-9A64-8027AC25C8DC}"
+        "PackageCode" = "8:{440BC795-1323-4742-A75F-D2E8F3C28E6C}"
         "UpgradeCode" = "8:{057645B2-8A3A-4267-9013-E9F8A6757AE8}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.0.0"
+        "ProductVersion" = "8:1.0.0"
         "Manufacturer" = "8:julemandennb"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -662,7 +662,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_9D06DCDFF943489D9B4DA8674FAF89C8"
             {
-            "SourcePath" = "8:..\\GetWorkDay\\obj\\Debug\\net7.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\GetWorkDay\\obj\\Release\\net7.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_7C1FB20636304372A1B58F64393676C5"
