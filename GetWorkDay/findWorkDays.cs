@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GetWorkDay.model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace GetWorkDay
         }
 
 
-        internal retuneValFindWorkDays GetDays(DateTime start, DateTime end, List<DateTime> dateNotWorks, List<string> NameNotWorks, List<string> WorkHomes, List<bool> weekDay)
+        internal RetuneValFindWorkDays GetDays(DateTime start, DateTime end, List<DateTime> dateNotWorks, List<string> NameNotWorks, List<string> WorkHomes, List<bool> weekDay)
         {
 
             var calendarEvent = this.icalRead.calendarEvent.Where(i => i.DtEnd != null);
@@ -35,7 +36,8 @@ namespace GetWorkDay
 
             List<DateTime> WorkDay = GetAllDayWork(BusinessDays, NameNotWorksDato);
 
-            retuneValFindWorkDays retuneValFindWorkDays = new retuneValFindWorkDays{
+            RetuneValFindWorkDays retuneValFindWorkDays = new RetuneValFindWorkDays
+            {
                 WorkDay = WorkDay,
                 WorkHomesDatos = GetAllDatesBetweenWorkHomesDato(WorkHomesDato)
             };
@@ -97,11 +99,5 @@ namespace GetWorkDay
         public DateTime End { get; set; }
     }
 
-    class retuneValFindWorkDays
-    {
-        public List<DateTime> WorkDay { get; set; }
-        public List<DateTime> WorkHomesDatos { get; set; }
-
-        public int totalOnOff { get { return WorkDay.Count - WorkHomesDatos.Count; } }
-    }
+   
 }
